@@ -79,6 +79,43 @@
 .catalog-bar{flex-direction:column;align-items:stretch;gap:10px}
 .search{flex:none}
 }
+/* ===== NOIR v2 каталог: карточки, hover-эффекты, отступы, адаптив ===== */
+.products{gap:22px}
+.card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);overflow:hidden;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px -16px rgba(32,32,30,.5);border-color:rgba(32,32,30,.3)}
+.card .product-art{height:262px}
+.card .product-art:before{transition:transform .35s ease}
+.card:hover .product-art:before{transform:scale(1.06)}
+.card .product-info{padding:14px 16px 12px;transition:background .25s ease}
+.card .product-info>div{min-width:0;font-weight:600}
+.card .product-info small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .add{margin:4px 16px 16px;width:calc(100% - 32px);transition:background .25s ease,transform .2s ease}
+.card .add:hover{background:#45443f;transform:translateY(-1px)}
+.card .add:active{transform:translateY(0)}
+.fav{transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease}
+.fav:hover{background:var(--white);transform:scale(1.06)}
+.fav.on{background:#f7ecea}
+.tag{border:1px solid var(--line);box-shadow:0 4px 10px -6px rgba(32,32,30,.35)}
+.catalog-bar{margin-bottom:26px}
+.section-head{margin-bottom:30px}
+@media(max-width:1020px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card .product-art{height:215px}
+.card .product-info{padding:11px 12px 9px;font-size:12.5px}
+.card .add{margin:2px 12px 12px;width:calc(100% - 24px);padding:12px}
+.catalog-bar{margin-bottom:20px}
+.section-head{margin-bottom:24px}
+}
+@media(max-width:400px){
+.products{gap:9px}
+.card .product-art{height:178px}
+.card .product-info{padding:9px 10px 7px;font-size:12px}
+.card .add{margin:2px 10px 10px;width:calc(100% - 20px);padding:11px;font-size:10.5px}
+.fav{width:30px;height:30px;right:8px;top:8px}
+.tag{left:8px;top:8px;padding:4px 6px}
+}
+@media(prefers-reduced-motion:reduce){.card,.card:before,.card .product-art:before,.card *{transition:none!important;transform:none!important}}
 </style></head>
 <body><div class="topline">БЕСПЛАТНАЯ ДОСТАВКА ПРИ ЗАКАЗЕ ОТ 5 000 ₽</div>
 <header class="wrap header"><a class="logo" href="#home" aria-label="NOIR — на главную">NOIR</a><nav class="nav" aria-label="Основная навигация"><a href="#catalog">Каталог</a><a href="#about">О бренде</a><a href="#delivery">Доставка</a><a href="#contacts">Контакты</a></nav><a class="bag" href="#catalog">Смотреть каталог ↗</a><button type="button" class="bag" id="cartBtn" aria-label="Открыть корзину">Корзина<span class="bag-badge" id="cartCount">0</span></button></header>
