@@ -18,6 +18,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Check HTML file
+        run: |
+          test -f index.html
+          grep -qi '<!doctype html>' index.html
+          grep -qi '</html>' index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
